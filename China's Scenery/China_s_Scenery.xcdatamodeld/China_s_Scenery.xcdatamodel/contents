@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F27" minimumToolsVersion="Automatic">
+    <entity name="CPictuer" representedClassName="CPictuer" syncable="YES">
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnailName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="scenery" maxCount="1" deletionRule="Nullify" destinationEntity="CScenery" inverseName="pictures" inverseEntity="CScenery" syncable="YES"/>
+    </entity>
+    <entity name="CProvince" representedClassName="CProvince" syncable="YES">
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnailName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sceneries" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CScenery" inverseName="province" inverseEntity="CScenery" syncable="YES"/>
+    </entity>
+    <entity name="CScenery" representedClassName="CScenery" syncable="YES">
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isInFavourites" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="provinceName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnailName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updateUnix" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="pictures" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CPictuer" inverseName="scenery" inverseEntity="CPictuer" syncable="YES"/>
+        <relationship name="province" maxCount="1" deletionRule="Nullify" destinationEntity="CProvince" inverseName="sceneries" inverseEntity="CProvince" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CPictuer" positionX="142" positionY="17" width="128" height="133"/>
+        <element name="CProvince" positionX="-351" positionY="-63" width="128" height="103"/>
+        <element name="CScenery" positionX="-101" positionY="-0" width="128" height="165"/>
+    </elements>
+</model>

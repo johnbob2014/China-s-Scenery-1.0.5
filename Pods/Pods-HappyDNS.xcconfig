@@ -1,0 +1,1 @@
+PODS_HAPPYDNS_OTHER_LDFLAGS = -lresolv
