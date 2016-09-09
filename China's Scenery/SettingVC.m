@@ -16,7 +16,7 @@
 #import "WXApi.h"
 
 const NSString *APP_DOWNLOAD_URL=@"https://itunes.apple.com/app/id1072387063";
-const NSString *APP_INTRODUCTION_URL=@"http://7xpt9o.com1.z0.glb.clouddn.com/ChinaSceneryIntroduction.html";
+//const NSString *APP_INTRODUCTION_URL=@"http://7xpt9o.com1.z0.glb.clouddn.com/ChinaSceneryIntroduction.html";
 
 @interface SettingVC ()<RETableViewManagerDelegate>
 
@@ -179,7 +179,7 @@ const NSString *APP_INTRODUCTION_URL=@"http://7xpt9o.com1.z0.glb.clouddn.com/Chi
     if([WXApi isWXAppInstalled]&&[WXApi isWXAppSupportApi]){
         //NSLog(@"Session or Timeline");
         WXWebpageObject *webpageObject=[WXWebpageObject alloc];
-        webpageObject.webpageUrl=[APP_INTRODUCTION_URL copy];
+        webpageObject.webpageUrl=[APP_DOWNLOAD_URL copy];
         
         //UIImage *desImage = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@""]]];
         UIImage *sourceImage=[UIImage imageNamed:@"China's Scenery-150*150.jpg"];

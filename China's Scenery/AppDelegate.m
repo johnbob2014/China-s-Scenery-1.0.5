@@ -10,7 +10,7 @@
 #import "SceneryModel.h"
 #import "WXApi.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<WXApiDelegate>
 
 @end
 
@@ -22,19 +22,20 @@
     
     //向微信注册id
     BOOL wx=[WXApi registerApp:@"wx197b612fb7877a8a"];
-    NSLog(@"微信注册：%d",wx);
+    NSLog(@"微信注册：%@",wx? @"成功" : @"失败");
     
     //[[SceneryModel sharedModel] refreshCProvince];
     
     return YES;
 }
 
-//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-//{
-//    BOOL isSuc = [WXApi handleOpenURL:url delegate:self];
-//    NSLog(@"url %@ isSuc %d",url,isSuc == YES ? 1 : 0);
-//    return  isSuc;
-//}
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(nonnull NSDictionary<NSString *,id> *)options{
+    NSLog(@"openURL: %@",[url absoluteString]);
+    
+    BOOL isSuc = [WXApi handleOpenURL:url delegate:self];
+    NSLog(@"url %@ isSuc %d",url,isSuc == YES ? 1 : 0);
+    return  isSuc;
+}
 
 #pragma mark - Core Data stack
 
